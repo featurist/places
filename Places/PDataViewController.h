@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PDataViewController : UIViewController
+@interface PDataViewController : UIViewController {
+    BOOL showingDescription;
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) IBOutlet UIImageView *blurredImage;
+@property (strong, nonatomic) IBOutlet UIWebView *description;
 @property (strong, nonatomic) id dataObject;
+
+@property (strong, nonatomic) UIImage *originalImage;
+
+- (IBAction)toggleDescription:(id)sender;
 
 @end

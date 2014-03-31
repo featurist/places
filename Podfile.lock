@@ -14,11 +14,14 @@ PODS:
   - BlocksKit/UIKit (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - UIImage-Helpers (0.0.2)
 
 DEPENDENCIES:
   - BlocksKit
+  - UIImage-Helpers
 
 SPEC CHECKSUMS:
   BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
+  UIImage-Helpers: 085a931740604e2e3256a70217bef6436d1a2ca8
 
 COCOAPODS: 0.31.0

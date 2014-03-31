@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222DC1C818EA22FF00E0B796 /* description.html in Resources */ = {isa = PBXBuildFile; fileRef = 222DC1C718EA22FF00E0B796 /* description.html */; };
 		22F9057F18EA03D00072EB61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9057E18EA03D00072EB61 /* Foundation.framework */; };
 		22F9058118EA03D00072EB61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9058018EA03D00072EB61 /* CoreGraphics.framework */; };
 		22F9058318EA03D00072EB61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9058218EA03D00072EB61 /* UIKit.framework */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		222DC1C718EA22FF00E0B796 /* description.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = description.html; sourceTree = "<group>"; };
 		22F9057B18EA03D00072EB61 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F9057E18EA03D00072EB61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22F9058018EA03D00072EB61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +140,7 @@
 				22F9059918EA03D00072EB61 /* Main.storyboard */,
 				22F9059C18EA03D00072EB61 /* Images.xcassets */,
 				22F9058518EA03D00072EB61 /* Supporting Files */,
+				222DC1C718EA22FF00E0B796 /* description.html */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F905D418EA09E30072EB61 /* Images in Resources */,
+				222DC1C818EA22FF00E0B796 /* description.html in Resources */,
 				22F9059D18EA03D00072EB61 /* Images.xcassets in Resources */,
 				22F9058918EA03D00072EB61 /* InfoPlist.strings in Resources */,
 				22F9059B18EA03D00072EB61 /* Main.storyboard in Resources */,
