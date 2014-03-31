@@ -1,0 +1,24 @@
+PODS:
+  - BlocksKit (2.2.2):
+    - BlocksKit/All
+  - BlocksKit/All (2.2.2):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.2)
+  - BlocksKit/DynamicDelegate (2.2.2)
+  - BlocksKit/MessageUI (2.2.2):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.2):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+
+DEPENDENCIES:
+  - BlocksKit
+
+SPEC CHECKSUMS:
+  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
+
+COCOAPODS: 0.31.0

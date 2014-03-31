@@ -7,8 +7,8 @@
 //
 
 #import "PModelController.h"
-
 #import "PDataViewController.h"
+#import <BlocksKit.h>
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -45,7 +45,9 @@
     NSArray *dirContents = [fm contentsOfDirectoryAtPath:imagesPath error:nil];
     NSPredicate *fltr = [NSPredicate predicateWithFormat:@"self ENDSWITH[c] '.jpg'"];
     NSArray *onlyJPGs = [dirContents filteredArrayUsingPredicate:fltr];
-    _pageData = onlyJPGs;
+    _pageData = [onlyJPGs bk_map:^id(id jpg) {
+        return [NSString stringWithFormat:@"%@/%@", imagesPath, jpg];
+    }];
 }
 
 - (PDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard

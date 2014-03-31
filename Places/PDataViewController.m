@@ -29,7 +29,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.dataLabel.text = [self.dataObject description];
+    self.image.image = [UIImage imageWithContentsOfFile:self.dataObject];
+    
+    NSLog(@"view did appear: %@", self.dataObject);
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"view did disappear: %@", self.dataObject);
 }
 
 @end
