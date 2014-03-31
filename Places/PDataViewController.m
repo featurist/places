@@ -37,12 +37,10 @@
     self.originalImage = [UIImage imageWithContentsOfFile:self.dataObject];
     self.image.image = self.originalImage;
     self.blurredImage.image = [self.originalImage blurredImage:10.0f];
-//    self.blurredImage.image = self.originalImage;
-    
 
     NSError *error;
     NSString *htmlTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"description.html" ofType:nil] encoding:NSUTF8StringEncoding error:&error];
-    NSString *html = [NSString stringWithFormat:htmlTemplate, self.dataObject];
+    NSString *html = [NSString stringWithFormat:htmlTemplate, @"a beautiful spot, tranquil and warm: <a href='http://www.apple.com/'>Haute Savoie</a>."];
     
     [self.description loadHTMLString:html baseURL:[NSURL URLWithString:@"http://localhost/"]];
     
