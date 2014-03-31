@@ -30,10 +30,22 @@
     self = [super init];
     if (self) {
         // Create the data model.
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        _pageData = [[dateFormatter monthSymbols] copy];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        _pageData = [[dateFormatter monthSymbols] copy];
+        
+        [self loadPlaces];
     }
     return self;
+}
+
+- (void)loadPlaces {
+    NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *imagesPath = [NSString pathWithComponents:@[bundleRoot, @"Images"]];
+    NSArray *dirContents = [fm contentsOfDirectoryAtPath:imagesPath error:nil];
+    NSPredicate *fltr = [NSPredicate predicateWithFormat:@"self ENDSWITH[c] '.jpg'"];
+    NSArray *onlyJPGs = [dirContents filteredArrayUsingPredicate:fltr];
+    _pageData = onlyJPGs;
 }
 
 - (PDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard

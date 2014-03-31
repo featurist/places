@@ -23,6 +23,7 @@
 		22F905A618EA03D00072EB61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9058218EA03D00072EB61 /* UIKit.framework */; };
 		22F905AE18EA03D00072EB61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F905AC18EA03D00072EB61 /* InfoPlist.strings */; };
 		22F905B018EA03D00072EB61 /* PlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F905AF18EA03D00072EB61 /* PlacesTests.m */; };
+		22F905D418EA09E30072EB61 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 22F905D318EA09E30072EB61 /* Images */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		22F905AB18EA03D00072EB61 /* PlacesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlacesTests-Info.plist"; sourceTree = "<group>"; };
 		22F905AD18EA03D00072EB61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		22F905AF18EA03D00072EB61 /* PlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesTests.m; sourceTree = "<group>"; };
+		22F905D318EA09E30072EB61 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		22F9058418EA03D00072EB61 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				22F905D318EA09E30072EB61 /* Images */,
 				22F9058D18EA03D00072EB61 /* PAppDelegate.h */,
 				22F9058E18EA03D00072EB61 /* PAppDelegate.m */,
 				22F9059018EA03D00072EB61 /* PRootViewController.h */,
@@ -239,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F905D418EA09E30072EB61 /* Images in Resources */,
 				22F9059D18EA03D00072EB61 /* Images.xcassets in Resources */,
 				22F9058918EA03D00072EB61 /* InfoPlist.strings in Resources */,
 				22F9059B18EA03D00072EB61 /* Main.storyboard in Resources */,
