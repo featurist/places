@@ -1,0 +1,6 @@
+*.xcodeproj/*
+project.xcworkspace
+/DerivedData/
+xcuserdata/
+.*.sw[op]
+Pods
