@@ -2,6 +2,7 @@ app = require '../app'
 needle = require 'needle'
 http = require 'http'
 createClient = require './client'
+db = require '../db'
 
 require 'chai'.should ()
 
@@ -15,6 +16,8 @@ describe 'server'
         server := http.createServer (app)
         server.listen (port)!
         client := createClient (url '/')
+
+        db ().clear ()
 
     afterEach
         server.close()!
@@ -32,9 +35,9 @@ describe 'server'
         placesResponse.statusCode.should.equal 200
 
         descriptions = [p <- placesResponse.body, p.description]
-        descriptions.should.equal ['place 2', 'place 1', 'place 3']
+        descriptions.should.eql ['place 2', 'place 1', 'place 3']
 
-    it 'returns 404 on unkown place'
+    it 'returns 404 on unknown place'
         response = needle.get (url '/places/unknown')!
         response.statusCode.should.equal 404
 
