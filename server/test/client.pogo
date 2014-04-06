@@ -19,7 +19,7 @@ module.exports (baseUrl) =
             if (response.statusCode != 201)
                 response (response) exception "could not create place"
 
-            response.headers.location
+            response.body
 
         place (path) =
             retreiveResponse = needle.get (url (path))!
