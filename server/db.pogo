@@ -18,6 +18,7 @@ module.exports () =
                 lat = row.lat
                 long = row.long
             }
+            id = row.id
         }
 
     {

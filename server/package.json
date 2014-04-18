@@ -16,7 +16,9 @@
     "needle": "git+https://github.com/featurist/needle.git",
     "chai": "~1.9.1",
     "fcmp": "~0.1.1",
-    "memorystream": "~0.2.0"
+    "memorystream": "~0.2.0",
+    "qo": "0.0.10",
+    "qo-ps": "0.0.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -31,20 +31,27 @@ describe 'server'
         cleanupTasks := []
 
     describe 'places'
-        it 'can find the nearest 3 places, in proximity order'
-            [n <- [1, 2, 3], client.createPlace! {
-                location = {
-                    lat = "#(n)"
-                    long = '0'
-                }
-                description "place #(n)"
-            }]
 
-            placesResponse = needle.get (url '/places/nearest?lat=1.9&long=1')!
-            placesResponse.statusCode.should.equal 200
+        describe 'nearest places'
+            it 'can find the nearest 3 places, in proximity order'
+                [n <- [1, 2, 3], client.createPlace! {
+                    location = {
+                        lat = "#(n)"
+                        long = '0'
+                    }
+                    description "place #(n)"
+                }]
 
-            descriptions = [p <- placesResponse.body, p.description]
-            descriptions.should.eql ['place 2', 'place 1', 'place 3']
+                placesResponse = needle.get (url '/places/nearest?lat=1.9&long=1')!
+                placesResponse.statusCode.should.equal 200
+
+                descriptions = [p <- placesResponse.body, p.description]
+                descriptions.should.eql ['place 2', 'place 1', 'place 3']
+
+                queryPlace2 = placesResponse.body.0
+
+                place2 = needle.get (url (queryPlace2.href))!.body
+                place2.description.should.equal 'place 2'
 
         it 'returns 404 on unknown place'
             response = needle.get (url '/places/unknown')!
@@ -66,6 +73,8 @@ describe 'server'
 
             retreiveResponse = needle.get (url (placePath))!
             retreiveResponse.statusCode.should.equal 200
+            console.log (retreiveResponse.body)
+            retreiveResponse.body.href.should.equal (placePath)
 
             place = retreiveResponse.body
 
