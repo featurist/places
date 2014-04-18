@@ -17,11 +17,12 @@ describe 'server'
     client = nil
 
     beforeEach
-        server := http.createServer (app)
+        dbUrl = 'postgres://localhost/places_test'
+        server := http.createServer (app (dbUrl: dbUrl))
         server.listen (port)!
         client := createClient (url '/')
 
-        db ().clear ()
+        db (url: dbUrl).clear ()
 
     afterEach
         server.close()!
@@ -73,7 +74,6 @@ describe 'server'
 
             retreiveResponse = needle.get (url (placePath))!
             retreiveResponse.statusCode.should.equal 200
-            console.log (retreiveResponse.body)
             retreiveResponse.body.href.should.equal (placePath)
 
             place = retreiveResponse.body
@@ -97,7 +97,7 @@ describe 'server'
             it 'can store an image for a place'
                 kitten = "#(__dirname)/kitten.jpg"
                 kittenStream = fs.createReadStream (kitten)
-                putResponse = needle.put (url (place.image), kittenStream, stream: true, headers: {"content-type" = "image/jpeg"})!
+                putResponse = needle.put (url (place.image), kittenStream, headers: {"content-type" = "image/jpeg"})!
 
                 putResponse.statusCode.should.equal 201
 
@@ -114,7 +114,7 @@ describe 'server'
             it 'cannot store content that is not an image'
                 kitten = "#(__dirname)/kitten.jpg"
                 kittenStream = fs.createReadStream (kitten)
-                putResponse = needle.put (url (place.image), kittenStream, stream: true, headers: {"content-type" = "application/pdf"})!
+                putResponse = needle.put (url (place.image), kittenStream, headers: {"content-type" = "application/pdf"})!
 
                 putResponse.statusCode.should.equal 400
 
@@ -137,7 +137,7 @@ describe 'server'
                         largeImage = streamOf (3 * 1024 * 1024) bytes
 
                         try
-                            needle.put (url (place.image), largeImage, stream: true, headers: {"content-type" = "image/jpeg"})!
+                            needle.put (url (place.image), largeImage, headers: {"content-type" = "image/jpeg"})!
                             done (@new Error "could place entire image")
                         catch (e)
                             console.log (e)

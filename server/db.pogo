@@ -1,16 +1,6 @@
 pg = require 'pg'
 
-module.exports () =
-    withDatabase (block, cb) =
-        pg.connect 'postgres://localhost/places' @(err, client, done)
-            if (err)
-                done (err)
-                cb (err)
-            else
-                block (client) @(err, result)
-                    done (err)
-                    cb (err, result)
-
+module.exports (url: 'postgres://localhost/places') =
     placeFromRow (row) =
         {
             description = row.description
@@ -22,13 +12,23 @@ module.exports () =
         }
 
     {
+        withDatabase (block)! =
+            pg.connect (url) @(err, client, done)
+                if (err)
+                    done (err)
+                    continuation (err)
+                else
+                    block (client) @(err, result)
+                        done (err)
+                        continuation (err, result)
+
         createPlace (place)! =
-            withDatabase @(db)!
+            self.withDatabase @(db)!
                 result = db.query ("insert into locations (description, lat, long, position) values ($1, $2, $3, ST_SetSRID(ST_MakePoint($4, $5), 4326)) returning id;", [place.description, place.location.lat, place.location.long, place.location.lat, place.location.long])!
                 result.rows.0.id
 
         placesNearestTo (location, limit: 10)! =
-            withDatabase @(db)!
+            self.withDatabase @(db)!
                 result = db.query "select *, position <-> ST_SetSRID(ST_MakePoint($1, $2), 4326) as distance
                                    from locations 
                                    order by distance
@@ -37,7 +37,7 @@ module.exports () =
                 [row <- result.rows, placeFromRow (row)]
 
         place (id)! =
-            withDatabase @(db)!
+            self.withDatabase @(db)!
                 result = db.query ("select * from locations where id = $1", [id])!
 
                 row = result.rows.0
@@ -46,6 +46,6 @@ module.exports () =
                     placeFromRow (row)
 
         clear ()! =
-            withDatabase @(db)!
+            self.withDatabase @(db)!
                 db.query "delete from locations;"!
     }

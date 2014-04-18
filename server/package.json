@@ -13,7 +13,7 @@
   "devDependencies": {
     "db-migrate": "~0.6.4",
     "mocha": "~1.18.2",
-    "needle": "git+https://github.com/featurist/needle.git",
+    "needle": "~0.7.0",
     "chai": "~1.9.1",
     "fcmp": "~0.1.1",
     "memorystream": "~0.2.0",

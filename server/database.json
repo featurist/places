@@ -3,5 +3,10 @@
     "driver": "pg",
     "host": "localhost",
     "database": "places"
+  },
+  "test": {
+    "driver": "pg",
+    "host": "localhost",
+    "database": "places_test"
   }
 }
