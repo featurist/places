@@ -7,7 +7,7 @@
 //
 
 #import "PPlaceViewController.h"
-#import <UIImage-Helpers.h>
+#import <GPUImage.h>
 
 @interface PPlaceViewController ()
 
@@ -29,13 +29,28 @@
     [super didReceiveMemoryWarning];
 }
 
+- (UIImage*) blurImage:(UIImage*)inputImage {
+    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc] initWithImage:inputImage];
+    GPUImageGaussianBlurFilter *blur = [[GPUImageGaussianBlurFilter alloc] init];
+    GPUImageBrightnessFilter *brightness = [[GPUImageBrightnessFilter alloc] init];
+    brightness.brightness = -0.05;
+    
+    [stillImageSource addTarget:blur];
+    [blur addTarget:brightness];
+    [brightness useNextFrameForImageCapture];
+    [stillImageSource processImage];
+    
+    return [brightness imageFromCurrentFramebuffer];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     NSData *imageData = [NSData dataWithContentsOfURL:_place.imageURL];
     self.originalImage = [[UIImage alloc] initWithData:imageData];
     self.image.image = self.originalImage;
-    self.blurredImage.image = [self.originalImage blurredImage:10.0f];
+    
+    self.blurredImage.image = [self blurImage:self.originalImage];
 
     NSError *error;
     NSString *htmlTemplate = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"description.html" ofType:nil] encoding:NSUTF8StringEncoding error:&error];

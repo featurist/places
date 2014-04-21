@@ -33,16 +33,16 @@ PODS:
   - BlocksKit/UIKit (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - UIImage-Helpers (0.0.2)
+  - GPUImage (0.1.4)
 
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit
-  - UIImage-Helpers
+  - GPUImage
 
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
-  UIImage-Helpers: 085a931740604e2e3256a70217bef6436d1a2ca8
+  GPUImage: f9b32e12350792a630e596ffc7b050bea3662670
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1
