@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPlace.h"
 
-@interface PDataViewController : UIViewController {
+@interface PPlaceViewController : UIViewController {
     BOOL showingDescription;
 }
 
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UIImageView *blurredImage;
 @property (strong, nonatomic) IBOutlet UIWebView *description;
-@property (strong, nonatomic) id dataObject;
+@property (strong, nonatomic) PPlace *place;
 
 @property (strong, nonatomic) UIImage *originalImage;
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		222DC1C818EA22FF00E0B796 /* description.html in Resources */ = {isa = PBXBuildFile; fileRef = 222DC1C718EA22FF00E0B796 /* description.html */; };
+		2249D2BC19016D6E00C3BE61 /* PPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 2249D2BB19016D6E00C3BE61 /* PPlace.m */; };
+		22EA52FD18FCFD6600D3A871 /* PApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EA52FC18FCFD6600D3A871 /* PApiClient.m */; };
+		22EA530018FD000900D3A871 /* PPlacesQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EA52FF18FD000900D3A871 /* PPlacesQuery.m */; };
 		22F9057F18EA03D00072EB61 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9057E18EA03D00072EB61 /* Foundation.framework */; };
 		22F9058118EA03D00072EB61 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9058018EA03D00072EB61 /* CoreGraphics.framework */; };
 		22F9058318EA03D00072EB61 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9058218EA03D00072EB61 /* UIKit.framework */; };
@@ -15,7 +18,7 @@
 		22F9058B18EA03D00072EB61 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9058A18EA03D00072EB61 /* main.m */; };
 		22F9058F18EA03D00072EB61 /* PAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9058E18EA03D00072EB61 /* PAppDelegate.m */; };
 		22F9059218EA03D00072EB61 /* PRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9059118EA03D00072EB61 /* PRootViewController.m */; };
-		22F9059518EA03D00072EB61 /* PDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9059418EA03D00072EB61 /* PDataViewController.m */; };
+		22F9059518EA03D00072EB61 /* PPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9059418EA03D00072EB61 /* PPlaceViewController.m */; };
 		22F9059818EA03D00072EB61 /* PModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F9059718EA03D00072EB61 /* PModelController.m */; };
 		22F9059B18EA03D00072EB61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22F9059918EA03D00072EB61 /* Main.storyboard */; };
 		22F9059D18EA03D00072EB61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F9059C18EA03D00072EB61 /* Images.xcassets */; };
@@ -40,6 +43,14 @@
 
 /* Begin PBXFileReference section */
 		222DC1C718EA22FF00E0B796 /* description.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = description.html; sourceTree = "<group>"; };
+		2249D2B91901571800C3BE61 /* PPlacesQueryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPlacesQueryDelegate.h; sourceTree = "<group>"; };
+		2249D2BA19016D6E00C3BE61 /* PPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPlace.h; sourceTree = "<group>"; };
+		2249D2BB19016D6E00C3BE61 /* PPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPlace.m; sourceTree = "<group>"; };
+		2249D2BD1901AF5500C3BE61 /* PModelControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PModelControllerDelegate.h; sourceTree = "<group>"; };
+		22EA52FB18FCFD6600D3A871 /* PApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PApiClient.h; sourceTree = "<group>"; };
+		22EA52FC18FCFD6600D3A871 /* PApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PApiClient.m; sourceTree = "<group>"; };
+		22EA52FE18FD000900D3A871 /* PPlacesQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPlacesQuery.h; sourceTree = "<group>"; };
+		22EA52FF18FD000900D3A871 /* PPlacesQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPlacesQuery.m; sourceTree = "<group>"; };
 		22F9057B18EA03D00072EB61 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F9057E18EA03D00072EB61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22F9058018EA03D00072EB61 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,8 +63,8 @@
 		22F9058E18EA03D00072EB61 /* PAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAppDelegate.m; sourceTree = "<group>"; };
 		22F9059018EA03D00072EB61 /* PRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRootViewController.h; sourceTree = "<group>"; };
 		22F9059118EA03D00072EB61 /* PRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRootViewController.m; sourceTree = "<group>"; };
-		22F9059318EA03D00072EB61 /* PDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDataViewController.h; sourceTree = "<group>"; };
-		22F9059418EA03D00072EB61 /* PDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDataViewController.m; sourceTree = "<group>"; };
+		22F9059318EA03D00072EB61 /* PPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPlaceViewController.h; sourceTree = "<group>"; };
+		22F9059418EA03D00072EB61 /* PPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPlaceViewController.m; sourceTree = "<group>"; };
 		22F9059618EA03D00072EB61 /* PModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PModelController.h; sourceTree = "<group>"; };
 		22F9059718EA03D00072EB61 /* PModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PModelController.m; sourceTree = "<group>"; };
 		22F9059A18EA03D00072EB61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,14 +144,22 @@
 				22F9058E18EA03D00072EB61 /* PAppDelegate.m */,
 				22F9059018EA03D00072EB61 /* PRootViewController.h */,
 				22F9059118EA03D00072EB61 /* PRootViewController.m */,
-				22F9059318EA03D00072EB61 /* PDataViewController.h */,
-				22F9059418EA03D00072EB61 /* PDataViewController.m */,
+				22F9059318EA03D00072EB61 /* PPlaceViewController.h */,
+				22F9059418EA03D00072EB61 /* PPlaceViewController.m */,
 				22F9059618EA03D00072EB61 /* PModelController.h */,
 				22F9059718EA03D00072EB61 /* PModelController.m */,
 				22F9059918EA03D00072EB61 /* Main.storyboard */,
 				22F9059C18EA03D00072EB61 /* Images.xcassets */,
 				22F9058518EA03D00072EB61 /* Supporting Files */,
 				222DC1C718EA22FF00E0B796 /* description.html */,
+				22EA52FB18FCFD6600D3A871 /* PApiClient.h */,
+				22EA52FC18FCFD6600D3A871 /* PApiClient.m */,
+				22EA52FE18FD000900D3A871 /* PPlacesQuery.h */,
+				22EA52FF18FD000900D3A871 /* PPlacesQuery.m */,
+				2249D2B91901571800C3BE61 /* PPlacesQueryDelegate.h */,
+				2249D2BA19016D6E00C3BE61 /* PPlace.h */,
+				2249D2BB19016D6E00C3BE61 /* PPlace.m */,
+				2249D2BD1901AF5500C3BE61 /* PModelControllerDelegate.h */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -309,8 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2249D2BC19016D6E00C3BE61 /* PPlace.m in Sources */,
+				22EA530018FD000900D3A871 /* PPlacesQuery.m in Sources */,
+				22EA52FD18FCFD6600D3A871 /* PApiClient.m in Sources */,
 				22F9058B18EA03D00072EB61 /* main.m in Sources */,
-				22F9059518EA03D00072EB61 /* PDataViewController.m in Sources */,
+				22F9059518EA03D00072EB61 /* PPlaceViewController.m in Sources */,
 				22F9059218EA03D00072EB61 /* PRootViewController.m in Sources */,
 				22F9058F18EA03D00072EB61 /* PAppDelegate.m in Sources */,
 				22F9059818EA03D00072EB61 /* PModelController.m in Sources */,

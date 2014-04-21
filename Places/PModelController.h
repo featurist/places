@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPlacesQueryDelegate.h"
+#import "PModelControllerDelegate.h"
 
-@class PDataViewController;
+@class PPlaceViewController;
 
-@interface PModelController : NSObject <UIPageViewControllerDataSource>
+@interface PModelController : NSObject <UIPageViewControllerDataSource, PPlacesQueryDelegate>
 
-- (PDataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
-- (NSUInteger)indexOfViewController:(PDataViewController *)viewController;
+- (PPlaceViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
+- (NSUInteger)indexOfViewController:(PPlaceViewController *)viewController;
+- (void)refresh;
+
+@property (weak, nonatomic, readwrite) id<PModelControllerDelegate> delegate;
 
 @end

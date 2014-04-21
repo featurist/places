@@ -10,7 +10,7 @@
 
 #import "PModelController.h"
 
-#import "PDataViewController.h"
+#import "PPlaceViewController.h"
 
 @interface PRootViewController ()
 @property (readonly, strong, nonatomic) PModelController *modelController;
@@ -28,7 +28,7 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationVertical options:nil];
     self.pageViewController.delegate = self;
 
-    PDataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
+    PPlaceViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 
@@ -47,6 +47,16 @@
     self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
 }
 
+- (void)modelDidUpdate:(PModelController *)model {
+    PPlaceViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
+    NSArray *viewControllers = @[startingViewController];
+    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
+
+- (IBAction)refresh:(id)sender {
+    [_modelController refresh];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -59,6 +69,7 @@
      // In more complex implementations, the model controller may be passed to the view controller.
     if (!_modelController) {
         _modelController = [[PModelController alloc] init];
+        _modelController.delegate = self;
     }
     return _modelController;
 }

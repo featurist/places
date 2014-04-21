@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PModelControllerDelegate.h"
 
-@interface PRootViewController : UIViewController <UIPageViewControllerDelegate>
+@interface PRootViewController : UIViewController <UIPageViewControllerDelegate, PModelControllerDelegate>
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+
+- (IBAction)refresh:(id)sender;
 
 @end
