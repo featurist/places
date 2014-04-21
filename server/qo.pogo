@@ -76,9 +76,10 @@ task 'db.seed' @(opts)
 
     [
         place <- places
-        @{
+        @(place) @{
+            console.log "posting #(place.place.description)"
             placeJson = needle.post ('http://localhost:4000/places', place.place, json: true)!.body
-            console.log(placeJson.href)
+            console.log "putting #(place.place.description), #(place.image) => #(placeJson.href)"
             needle.put ("http://localhost:4000#(placeJson.image)", fs.createReadStream (place.image), headers: {"content-type" = "image/jpeg"})!
-        }()
+        }(place)
     ]
